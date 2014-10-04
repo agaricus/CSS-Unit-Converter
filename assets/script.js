@@ -9,6 +9,16 @@
         var units = from + '-' + to,
             result,
             formulas = {
+                'ch-cm': '',
+                'ch-em': value * (base * 0.53),
+                'ch-in': '',
+                'ch-mm': '',
+                'ch-pc': '',
+                'ch-pt': '',
+                'ch-%': value * 53,
+                'ch-px': value * 0.53,
+
+                'cm-ch': '',
                 'cm-em': value / 0.42175176,
                 'cm-in': value * 0.39,
                 'cm-mm': value * 10,
@@ -17,6 +27,7 @@
                 'cm-%': value / base * 100 / 2.54 * dpi,
                 'cm-px': value / 2.54 * dpi,
 
+                'em-ch': '',
                 'em-cm': value * 0.42175176,
                 'em-in': value * 0.166044,
                 'em-mm': value / 0.237106301584,
@@ -25,6 +36,7 @@
                 'em-%': value * 100,
                 'em-px': value * base,
 
+                'in-ch': '',
                 'in-cm': value * 2.54,
                 'in-em': value / 0.166044,
                 'in-mm': value * 2.54 * 10,
@@ -33,6 +45,7 @@
                 'in-%': value / base * 100 * dpi,
                 'in-px': value * dpi,
 
+                'mm-ch': '',
                 'mm-cm': value / 10,
                 'mm-em': value * 0.237106301584,
                 'mm-in': value * 0.39 / 10,
@@ -41,6 +54,7 @@
                 'mm-%': value / base * 100 / 2.54 * dpi / 10,
                 'mm-px': value / 2.54 * dpi / 10,
 
+                'pc-ch': '',
                 'pc-cm': value * 0.42175176,
                 'pc-em': value,
                 'pc-in': value * 0.166044,
@@ -49,6 +63,7 @@
                 'pc-%': value * 100,
                 'pc-px': value * base,
 
+                'pt-ch': '',
                 'pt-cm': value / 28.3464566929,
                 'pt-em': value / 11.955168,
                 'pt-in': value * 0.014842519685,
@@ -57,6 +72,7 @@
                 'pt-%': value / (base - 4) * 100,
                 'pt-px': value * 96 / 72,
 
+                '%-ch': '',
                 '%-cm': value * base / 100 * 2.54 / dpi,
                 '%-em': value / 100,
                 '%-in': value * base / 100 / dpi,
@@ -65,6 +81,7 @@
                 '%-pt': value * (base - 4) / 100,
                 '%-px': value * base / 100,
 
+                'px-ch': '',
                 'px-cm': value * 2.54 / dpi,
                 'px-em': value / base,
                 'px-in': value / dpi,
@@ -84,7 +101,7 @@
             selects = document.querySelectorAll('select'),
             settings = document.querySelectorAll('.settings input'),
             fragment = document.createDocumentFragment(),
-            units = ['cm', 'em', 'in', 'mm', 'pc', 'pt', '%', 'px'];
+            units = ['ch', 'cm', 'em', 'in', 'mm', 'pc', 'pt', '%', 'px'];
 
         // Set from value
         from.value = localStorage.getItem(from.name) || '';
